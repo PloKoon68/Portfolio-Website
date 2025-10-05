@@ -9,6 +9,9 @@ import ExperiencesPage from './components/pages/ExperiencesPage/ExperiencesPage'
 import ContestsPage from './components/pages/ContestsPage/ContestsPage';
 // Navbar Component
 
+
+import { Link } from "react-router-dom";
+
 const Navbar = ({name}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -26,13 +29,9 @@ const Navbar = ({name}) => {
         }}>
           {navItems.map((item) => (
             <li key={item.name} style={styles.navItem}>
-              <a
-                href={`${item.path}`}
-                style={styles.navLink}
-                onClick={() => setMobileMenuOpen(false)}
-              >
+              <Link to={item.path} style={styles.navLink} onClick={() => setMobileMenuOpen(false)}>
                 {item.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
