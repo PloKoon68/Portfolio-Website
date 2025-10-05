@@ -1,0 +1,66 @@
+1. Install the gh-pages package
+
+In your project directory (C:\Users\ors_m\OneDrive\Masaüstü\mehmet work\son), run:
+
+npm install gh-pages --save-dev
+
+2. Configure package.json
+
+Open your package.json and add these two things:
+
+(a) Add a homepage field
+
+Replace your-username and your-repo-name with your GitHub details:
+
+"homepage": "https://your-username.github.io/your-repo-name"
+
+(b) Add deploy scripts inside "scripts"
+
+Example:
+
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+
+3. Push Your Code to GitHub
+
+Make sure your project is already on GitHub:
+
+git add .
+git commit -m "Setup for GitHub Pages deployment"
+git push origin main
+
+
+(if your branch is master, replace main with master)
+
+4. Deploy 🚀
+
+Run:
+
+npm run deploy
+
+
+This will:
+
+Build your app
+
+Push the build to a special branch called gh-pages
+
+5. Enable GitHub Pages
+
+Go to your repository on GitHub.
+
+Open Settings → Pages.
+
+Under Source, choose gh-pages branch and /root.
+
+Save.
+
+6. Visit Your Site 🎉
+
+Your React app will be live at:
+
+https://your-username.github.io/your-repo-name

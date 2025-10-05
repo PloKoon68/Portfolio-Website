@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, Code, Briefcase, Trophy, Heart, Menu, X } from 'lucide-react';
-import { Route, Routes} from 'react-router-dom';  // ✅ Just use Route and Routes
+import { HashRouter as Router, Route, Routes} from 'react-router-dom';  // ✅ Just use Route and Routes
 import { useNavigate } from 'react-router-dom';
 
 import MainPage from './components/pages/MainPage/MainPage';
@@ -55,45 +55,17 @@ export default function App() {
 
   return (
     <div style={styles.app}>
-      <Navbar name={name} />
+      <Router>
+        <Navbar name={name} />
+        <Routes>
+          <Route path="/" element={<MainPage name={name} />} />
+          <Route path="/experiences" element={<ExperiencesPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contests" element={<ContestsPage />} />
+          <Route path="/hobbies" element={<div />} />
+        </Routes>
+      </Router>
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MainPage name={name} />
-          }
-        />
-
-        <Route
-          path="/experiences"
-          element={
-              <ExperiencesPage />
-          }
-        />
-
-        <Route
-          path="/projects"
-          element={
-              <ProjectsPage/>
-          }
-        />
-        
-        <Route
-          path="/contests"
-          element={
-              <ContestsPage />
-          }
-        />
-
-        <Route
-          path="/hobbies"
-          element={
-              <div/>
-          }
-        />
-        
-      </Routes>
     </div>
   );
 }
