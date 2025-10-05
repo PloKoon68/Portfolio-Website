@@ -55,17 +55,14 @@ export default function App() {
 
   return (
     <div style={styles.app}>
-      <Router>
-        <Navbar name={name} />
-        <Routes>
-          <Route path="/" element={<MainPage name={name} />} />
-          <Route path="/experiences" element={<ExperiencesPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/contests" element={<ContestsPage />} />
-          <Route path="/hobbies" element={<div />} />
-        </Routes>
-      </Router>
-
+      <Navbar name={name} />
+      <Routes>
+        <Route path="/" element={<MainPage name={name} />} />
+        <Route path="/experiences" element={<ExperiencesPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/contests" element={<ContestsPage />} />
+        <Route path="/hobbies" element={<div />} />
+      </Routes>
     </div>
   );
 }
