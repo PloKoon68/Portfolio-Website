@@ -1,102 +1,183 @@
-import React, { useState } from 'react';
 import { Github, Linkedin, Mail, Code, Briefcase, Trophy, Heart, Menu, X } from 'lucide-react';
-import { Route, Routes} from 'react-router-dom';  // ✅ Just use Route and Routes
 import { useNavigate } from 'react-router-dom';
 
-import MainPage from './components/pages/MainPage/MainPage';
-import ProjectsPage from './components/pages/ProjectsPage/ProjectsPage';
-import ExperiencesPage from './components/pages/ExperiencesPage/ExperiencesPage';
-import ContestsPage from './components/pages/ContestsPage/ContestsPage';
-// Navbar Component
+import img from './assets/vesikalık.jpeg';
 
-const Navbar = ({name}) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+// Hero Component
+export default function MainPage({name}){
   const navigate = useNavigate();
- 
-  const navItems = [{name: 'Home', path: '/'}, {name: 'Projects', path: 'projects'}, {name: 'Experiences', path: '/experiences'}, {name: 'Contests', path: '/contests'}];
- 
+const Hero = () => { 
   return (
-    <nav style={styles.nav}>
-      <div style={styles.navContainer}>
-        <div style={styles.logo} onClick={() =>  navigate('/')}> {name}</div>
-       
-        <ul style={{
-          ...styles.navLinks,
-          ...(mobileMenuOpen ? styles.navLinksActive : {})
-        }}>
-          {navItems.map((item) => (
-            <li key={item.name} style={styles.navItem}>
-              <a
-                href={`${item.path}`}
-                style={styles.navLink}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+    <section id="home" style={styles.hero}>
+      <div style={styles.heroContent}>
+        <div style={styles.profilePhoto}>
+          <div style={styles.profileGlow}></div>
+          <img
+            src={img}
+            alt="Profile"
+            style={styles.profileImg}
+          />
+        </div>
  
-        <button
-          style={styles.mobileMenu}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div style={styles.heroText}>
+          <h1 style={styles.heroTitle}>
+            Hi, I'm <span style={styles.heroName}>{name}</span>
+          </h1>
+          <p style={styles.tagline}>
+            Software Engineer (AI/ML & Full-Stack)
+          </p>
+          <p style={styles.description}>
+            I am a software engineer who has worked on various projects in artificial intelligence, deep 
+            learning, and full-stack development. I have completed courses and programs, and participated 
+            in competitions. With strong teamwork, project management, and fast learning skills, I have 
+            achieved success in national and international projects. My career goal is to focus on developing 
+            AI and cloud-based solutions and applications. I also have international education experience 
+            through the Erasmus exchange program.
+          </p>
+
+          <div style={styles.socialLinks}>
+            <a href="https://github.com/PloKoon68" target="_blank" rel="noopener noreferrer" style={styles.socialLink}>
+              <Github size={24} />
+            </a>
+            <a href="https://linkedin.com/in/mehmetors" target="_blank" rel="noopener noreferrer" style={styles.socialLink}>
+              <Linkedin size={24} />
+            </a>
+            <a href="mailto:ors_mehmet68@hotmail.com" style={styles.socialLink}>
+              <Mail size={24} />
+            </a>
+          </div>
+        </div>
       </div>
-    </nav>
+    </section>
   );
 };
  
+// Skills Component
+const Skills = () => {
+  const skills = ['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'CSS', 'Git', 'Docker'];
+ 
+  return (
+    <section style={styles.skills}>
+      <div style={styles.skillsContainer}>
+        <h2 style={styles.sectionTitle}>Tech Stack</h2>
+        <div style={styles.skillsGrid}>
+          {skills.map((skill) => (
+            <div key={skill} style={styles.skillTag}>
+              {skill}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 
-export default function App() {
-  const name = "Mehmet ÖRS";
+ 
+// Cards Component
+const Cards = () => {
+  const cards = [
+    {
+      title: 'Projects',
+      description: 'Explore my technical projects and applications',
+      icon: Code,
+      gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80',
+      path: "/projects"
+    },
+    {
+      title: 'Experience',
+      description: 'Professional journey and work history',
+      icon: Briefcase,
+      gradient: 'linear-gradient(135deg, #a855f7, #ec4899)',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
+      path: "/experiences"
+    },
+    {
+      title: 'Competitions',
+      description: 'Hackathons, contests, and achievements',
+      icon: Trophy,
+      gradient: 'linear-gradient(135deg, #f59e0b, #f97316)',
+      image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80',
+      path: "/competitions"
+    },
+    {
+      title: 'Hobbies',
+      description: 'Interests and activities beyond coding',
+      icon: Heart,
+      gradient: 'linear-gradient(135deg, #10b981, #059669)',
+      image: 'https://images.unsplash.com/photo-1452857297128-d9c29adba80b?w=800&q=80',
+      path: "/hobbies"
+    }
+  ];
+ 
+  return (
+    <section id="projects" style={styles.cardsSection}>
+      <h2 style={styles.sectionTitle}>Explore My Work</h2>
+      <div style={styles.cardsGrid}>
+        {cards.map((card, index) => {
+          const Icon = card.icon;
+          return (
+            <div key={index} style={styles.card} onClick={()=> navigate(card.path)}>
+              <div style={{...styles.cardBg, backgroundImage: `url(${card.image})`}}></div>
+              <div style={{...styles.cardOverlay, background: card.gradient}}></div>
+              <div style={styles.cardContent}>
+                <div>
+                  <div style={styles.cardIcon}>
+                    <Icon size={32} />
+                  </div>
+                  <h3 style={styles.cardTitle}>{card.title}</h3>
+                  <p style={styles.cardDescription}>{card.description}</p>
+                </div>
+                <div style={styles.cardLink}>View More →</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+ 
+// Contact Component
+const Contact = () => {
+  return (
+    <section id="contact" style={styles.contact}>
+      <div style={styles.contactContainer}>
+        <h2 style={styles.sectionTitle}>Let's Work Together</h2>
+        <p style={styles.contactText}>
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+        </p>
+        <a href="mailto:your.email@example.com" style={styles.contactBtn}>
+          Get In Touch
+        </a>
+      </div>
+    </section>
+  );
+};
+ 
+// Footer Component
+const Footer = () => {
+  return (
+    <footer style={styles.footer}>
+      <p>© 2025 Your Name. Built with React.</p>
+    </footer>
+  );
+};
+ 
+ 
 
   return (
-    <div style={styles.app}>
-      <Navbar name={name} />
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MainPage name={name} />
-          }
-        />
-
-        <Route
-          path="/experiences"
-          element={
-              <ExperiencesPage />
-          }
-        />
-
-        <Route
-          path="/projects"
-          element={
-              <ProjectsPage/>
-          }
-        />
-        
-        <Route
-          path="/contests"
-          element={
-              <ContestsPage />
-          }
-        />
-
-        <Route
-          path="/hobbies"
-          element={
-              <div/>
-          }
-        />
-        
-      </Routes>
-    </div>
+    <>
+      <Hero />
+      <Skills />
+      <Cards />
+      <Contact />
+      <Footer />
+    </>
   );
-}
+};
+
  
 // Styles Object
 const styles = {
