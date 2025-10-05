@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, Code, Briefcase, Trophy, Heart, Menu, X } from 'lucide-react';
-import { HashRouter as Router, Route, Routes} from 'react-router-dom';  // ✅ Just use Route and Routes
+import { Route, Routes} from 'react-router-dom';  // ✅ Just use Route and Routes
 import { useNavigate } from 'react-router-dom';
 
 import MainPage from './components/pages/MainPage/MainPage';
