@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, Code, Briefcase, Trophy, Heart, Menu, X } from 
 import { useNavigate } from 'react-router-dom';
 
 import img from './assets/vesikalık.jpeg';
+import './MainPage.css';
 
 // Hero Component
 export default function MainPage({name}){
@@ -54,24 +55,80 @@ const Hero = () => {
  
 // Skills Component
 const Skills = () => {
-  const skills = ['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'CSS', 'Git', 'Docker'];
- 
+  const skills = {
+  Programming: ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'HTML', 'CSS'],
+  Database: ['PostgreSQL', 'MongoDB', 'MySQL'],
+  MachineLearning: ['TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy'],
+  DevOps: ['Docker', 'CI/CD', 'Kubernetes', 'AWS'],
+  Web: ['React', 'Bootstrap', 'Tailwind', 'Node.js', 'Express.js', 'Flask', 'FastAPI', 'Go'],
+  Languages: ['English (B2+)', 'Turkish (Native)'],
+  Other: ['Git', 'REST APIs', 'Agile/Scrum', 'OOP']
+};
+
   return (
-    <section style={styles.skills}>
-      <div style={styles.skillsContainer}>
-        <h2 style={styles.sectionTitle}>Tech Stack</h2>
-        <div style={styles.skillsGrid}>
-          {skills.map((skill) => (
-            <div key={skill} style={styles.skillTag}>
-              {skill}
+    <section className="skills-section">
+      <div className="skills-container">
+        <h2 className="skills-section-title">Tech Stack & Skills</h2>
+        {Object.entries(skills).map(([category, items]) => (
+          <div key={category} className="skills-category">
+            <h3 className="skills-category-title">
+              {category}
+            </h3>
+            <div className="skills-grid">
+              {items.map((skill) => (
+                <div key={skill} className="skill-tag">
+                  {skill}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
+// Education Component
+const Education = () => {
+  const schools = [
+    {
+      name: 'İstanbul Aydın University',
+      degree: 'Bachelor of Software Engineering ',
+      gpa: 'GPA: 3.62/4.00 - 2nd in department - High Honor',
+      period: '2020 - 2025',
+      description: 'Sofware Development, Project Mangement, AI'
+    },
+    {
+      name: 'John Von Neumann University',
+      degree: 'Erasmus+ Computer Science ',
+      gpa: 'GPA: 4.00 - 4.00',
+      period: '2024 - 2025',
+      description: 'Focused on AI and Full Stack Development'
+    }
+  ];
+
+  return (
+   <div style={styles.educationWrap}>
+    <section style={styles.education}>
+      <div style={styles.educationContainer}>
+        <h2 style={styles.sectionTitle}>Education</h2>
+        <div style={styles.educationGrid}>
+          {schools.map((school, index) => (
+            <div key={index} style={styles.educationCard}>
+              <div style={styles.educationIcon}>👨🏻‍🎓</div>
+              <h3 style={styles.educationName}>{school.name}</h3>
+              <p style={styles.educationDegree}>{school.degree}</p>
+              <p style={styles.educationGpa}>{school.gpa}</p>
+              <p style={styles.educationPeriod}>{school.period}</p>
+              <p style={styles.educationDescription}>{school.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    </div>    
+  );
+};
 
  
 // Cards Component
@@ -112,6 +169,7 @@ const Cards = () => {
   ];
  
   return (
+    <div style={styles.cardsWrap}>
     <section id="projects" style={styles.cardsSection}>
       <h2 style={styles.sectionTitle}>Explore My Work</h2>
       <div style={styles.cardsGrid}>
@@ -136,6 +194,7 @@ const Cards = () => {
         })}
       </div>
     </section>
+    </div> 
   );
 };
  
@@ -148,7 +207,7 @@ const Contact = () => {
         <p style={styles.contactText}>
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
         </p>
-        <a href="mailto:your.email@example.com" style={styles.contactBtn}>
+        <a href="mailto:ors_mehmet68@hotmail.com" style={styles.contactBtn}>
           Get In Touch
         </a>
       </div>
@@ -165,13 +224,13 @@ const Footer = () => {
   );
 };
  
- 
 
   return (
     <>
       <Hero />
-      <Skills />
+      <Education />
       <Cards />
+      <Skills />
       <Contact />
       <Footer />
     </>
@@ -320,8 +379,7 @@ const styles = {
     color: 'white',
   },
   skills: {
-    padding: '80px 2rem',
-    background: 'rgba(255, 255, 255, 0.05)',
+    padding: '80px 2rem'
   },
   skillsContainer: {
     maxWidth: '1200px',
@@ -348,6 +406,8 @@ const styles = {
     border: '1px solid rgba(255, 255, 255, 0.1)',
     borderRadius: '25px',
     transition: 'all 0.3s',
+  },
+  cardsWrap: {
   },
   cardsSection: {
     padding: '80px 2rem',
@@ -446,4 +506,69 @@ const styles = {
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
     color: '#9999b3',
   },
+  categoryTitle: {
+    textAlign: 'center',
+    marginBottom: '1.5rem',
+    fontSize: '1.5rem',
+    color: '#b8b8d1',
+  },
+
+
+
+  educationWrap: {
+    background: 'rgba(255, 255, 255, 0.05)',
+  },
+  education: {
+    padding: '80px 2rem',
+    maxWidth: '1200px',
+    margin: '0 auto'
+  },
+  educationContainer: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+  },
+  educationGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '2rem',
+    marginTop: '3rem',
+  },
+  educationCard: {
+    padding: '2rem',
+    background: 'linear-gradient(135deg, rgba(77, 76, 125, 0.2), rgba(130, 115, 151, 0.2))',
+    border: '1px solid rgba(216, 185, 195, 0.4)',
+    borderRadius: '20px',
+    transition: 'all 0.3s',
+    textAlign: 'center',
+  },
+  educationIcon: {
+    fontSize: '3rem',
+    marginBottom: '1rem',
+  },
+  educationName: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    marginBottom: '0.5rem',
+    color: '#D8B9C3',
+  },
+  educationDegree: {
+    fontSize: '1.1rem',
+    color: '#E8E8E8',
+    marginBottom: '0.5rem',
+  },
+  educationGpa: {
+    fontSize: '1rem',
+    color: '#827397',
+    marginBottom: '0.5rem',
+    fontWeight: '600',
+  },
+  educationPeriod: {
+    color: '#D8B9C3',
+    fontWeight: '600',
+    marginBottom: '1rem',
+  },
+  educationDescription: {
+    color: '#C4B5C7',
+    fontSize: '0.95rem',
+  }
 };

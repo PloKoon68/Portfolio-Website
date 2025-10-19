@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trophy } from 'lucide-react';
+import { Trophy, Award } from 'lucide-react';
 
 export default function ContestsPage() {
 
@@ -11,6 +11,7 @@ export default function ContestsPage() {
       achievement: '3rd Place out of 29 Finalists',
       description: 'As part of team "AYtech UAS - Kürşad 40," I developed the autonomous flight mission code. We used the MAVSDK library in Python for drone control and OpenCV for real-time image processing. The drone successfully performed a fully autonomous flight, scanning for and identifying hexagonal and triangular targets, dropping two payloads accurately, and returning to the starting point to land. We conducted extensive testing in the Gazebo simulation environment before competing.',
       technologies: ['Python', 'MAVSDK', 'OpenCV', 'Gazebo', 'Raspberry Pi', 'PX4 Autopilot'],
+      certificateUrl: 'https://drive.google.com/file/d/1K_bUNvSgumH9VOqtpJSa8NWzxx8TJ-CP/view?usp=sharing'
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ export default function ContestsPage() {
       achievement: 'Finalist - 11th out of 255 Teams',
       description: 'In the Kaggle stage of the Teknofest Address Analysis Hackathon, our team secured a finalist spot. The task was to develop an AI model for multi-class text classification of addresses. After intensive preprocessing and feature engineering, we fine-tuned a BERT model from Hugging Face, achieving a high score. We had the opportunity to present our work on stage to the jury and participants at the Hepsiburada Sancaktepe office.',
       technologies: ['Python', 'BERT', 'Hugging Face', 'NLP', 'Pandas', 'Scikit-learn', 'Kaggle'],
+      certificateUrl: 'https://drive.google.com/file/d/1D-WwS1BLruzyjYKklKcpl2ubFGz6tDFq/view?usp=sharing'
     },
     {
       id: 3,
@@ -27,6 +29,7 @@ export default function ContestsPage() {
       achievement: '6th Place out of ~65 Finalists',
       description: 'With our university\'s electric car team, ELEKTROAYDIN, I was responsible for developing the embedded code for the vehicle\'s motor driver using C on an STM32 microcontroller. I also developed code with Arduino to convert data from analog sensors into the required format and worked on various tasks, including resistance measurement from the isolation monitoring device for safety.',
       technologies: ['C', 'Embedded Systems', 'STM32', 'Arduino', 'Motor Control', 'Sensor Data'],
+      certificateUrl: 'https://drive.google.com/file/d/1RD4obecJr106SdOs2gGRVKd8hmVmz79u/view?usp=sharing'
     },
     {
       id: 4,
@@ -35,6 +38,7 @@ export default function ContestsPage() {
       achievement: '2nd Place out of 15 Teams',
       description: 'In an algorithm-solving competition jointly organized by Caretta Software and our university\'s Computer Engineering department, our team achieved second place. As the team leader, I played a significant role in problem-solving and guiding our strategy.',
       technologies: ['Algorithms', 'Data Structures', 'Problem Solving', 'Team Leadership', 'C++'],
+      certificateUrl: 'https://drive.google.com/file/d/1y85rooMvF4Qexw3FaSR-2UbUj40Cder_/view?usp=sharing'
     }
   ];
 
@@ -57,23 +61,52 @@ export default function ContestsPage() {
     return (
       <div className='contest-card' style={styles.contestCard}>
 
-        {/* Scrollable Image Gallery */}
-        <div className='all-images-container' style={styles.allImagesContainer}>
-          {groupedImages[contest.title] && groupedImages[contest.title].map((imgSrc, i) => (
-            <div className='contest-image-container' key={i} style={styles.imageContainer}>
-              <img 
-                src={imgSrc} 
-                alt={`${contest.title} - ${i + 1}`}
-                className='contest-image'
-                style={styles.contestImage}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Scrollable Image Gallery - Same as Projects Page */}
+        {groupedImages[contest.title] && (
+          <div className='images-scroll-container' style={styles.imagesScrollContainer}>
+            {groupedImages[contest.title].map((imgSrc, i) => (
+              <div className='contest-image-container' key={i} style={styles.imageContainer}>
+                <img 
+                  src={imgSrc} 
+                  alt={`${contest.title} - ${i + 1}`}
+                  className='contest-image'
+                  style={styles.contestImage}
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Contest Content */}
         <div className='contest-content-container' style={styles.contentContainer}>
-          <h2 className='contest-title' style={styles.contestTitle}>{contest.title}</h2>
+          
+          {/* Title and Certificate Button Row */}
+          <div style={styles.titleRow}>
+            <h2 className='contest-title' style={styles.contestTitle}>{contest.title}</h2>
+            
+            {/* View Certificate Button */}
+            {contest.certificateUrl && (
+              <a
+                href={contest.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.certificateButton}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #fde68a, #fbbf24)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 25px rgba(251, 191, 36, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #fbbf24, #f59e0b)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(251, 191, 36, 0.4)';
+                }}
+              >
+                <Award size={18} />
+                <span>View Certificate</span>
+              </a>
+            )}
+          </div>
           
           <div style={styles.metaInfo}>
             <span style={styles.organizer}>{contest.organizer}</span>
@@ -180,19 +213,23 @@ const styles = {
       borderRadius: '24px',
       border: '1px solid rgba(255, 255, 255, 0.1)',
       padding: '2rem',
+      overflow: 'hidden',
     },
-    allImagesContainer: {
+    // New: Horizontal scrolling images container (same as Projects)
+    imagesScrollContainer: {
       display: 'flex',
-      flexDirection: 'row',
-      overflowX: 'auto',
       gap: '1rem',
-      paddingBottom: '1rem',
+      overflowX: 'auto',
+      overflowY: 'hidden',
+      paddingBottom: '0.5rem',
       scrollbarWidth: 'thin',
-      scrollbarColor: '#facc15 rgba(255, 255, 255, 0.1)',
+      scrollbarColor: 'rgba(251, 191, 36, 0.5) rgba(255, 255, 255, 0.1)',
     },
     imageContainer: {
-      flex: '0 0 600px',
-      height: '350px',
+      position: 'relative',
+      flexShrink: 0,
+      width: '400px',
+      height: '300px',
       borderRadius: '16px',
       overflow: 'hidden',
       border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -201,17 +238,45 @@ const styles = {
       width: '100%',
       height: '100%',
       objectFit: 'cover',
+      transition: 'transform 0.3s ease',
     },
     contentContainer: {
       display: 'flex',
       flexDirection: 'column',
       gap: '1.5rem',
     },
+    // New: Title row with button
+    titleRow: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      flexWrap: 'wrap',
+      gap: '1rem',
+    },
     contestTitle: {
       fontSize: '2rem',
       fontWeight: 'bold',
       margin: 0,
       color: '#ffffff',
+      flex: 1,
+    },
+    // New: Certificate button (same style as experience page but golden theme)
+    certificateButton: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      padding: '0.75rem 1.5rem',
+      background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
+      color: '#1a1a2e',
+      textDecoration: 'none',
+      borderRadius: '10px',
+      fontSize: '0.95rem',
+      fontWeight: '700',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 15px rgba(251, 191, 36, 0.4)',
+      border: 'none',
+      cursor: 'pointer',
+      whiteSpace: 'nowrap',
     },
     metaInfo: {
         display: 'flex',

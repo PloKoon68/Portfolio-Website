@@ -58,8 +58,8 @@ The demo is available for testing and feedback, but the source code is currently
  * The entire stack can be started automatically using docker-compose.yml, ensuring a seamless development and testing environment.
 `,
       technologies: ['React', 'Flask', 'Docker', 'Docker Compose', 'MongoDB', 'PostgreSQL', 'PostGIS', 'YOLO', 'Transformer Models', 'OpenCV', 'WebSockets', 'UDP Streaming', 'H.264'], 
-      githubUrl: 'https://github.com/yourusername/task-manager',
-      liveUrl: 'https://taskmanager-demo.netlify.app',
+      githubUrl: 'https://github.com/PloKoon68/aegis-tracking',
+      liveUrl: false,
     },
     {
       id: 3,
@@ -99,12 +99,12 @@ This project gave me hands-on experience with:
 - Team collaboration in a competitive robotics environment
 `,
   technologies: ['MAVSDK', 'OpenCV', 'Python', 'Gazebo', 'Raspberry Pi', 'Ubuntu/Linux', 'PX4 Autopilot'],
-      githubUrl: 'https://github.com/yourusername/social-media-clone',
+      githubUrl: 'https://github.com/PloKoon68/Quadcopter-UAV',
       liveUrl: false,
     }
   ];
 
-  const context = require.context('./assets', true, /\.(png|jpe?g|svg)$/);
+  const context = require.context('./assets', true, /\.(png|jpe?g|svg|mp4)$/);
   const groupedImages = {};
 
   context.keys().forEach((key) => {
@@ -130,18 +130,37 @@ This project gave me hands-on experience with:
 
       <div className='all-images-container' style={{...styles.allImagesContainer, gap: '100px',  overflow: 'auto'}}>
         {
-          groupedImages[`${project.title}`] && groupedImages[`${project.title}`].map((imgSrc, i) =>  {
-            return <div className='project-image-container' key={i} style={{...styles.imageContainer, width: '%70'}}>
-              <img 
-                src={imgSrc} 
-                alt={project.title}
-                className='project-image'
-                style={styles.projectImage}
-              />
-            </div>
-          }
-          ) 
+          groupedImages[project.title] &&
+          groupedImages[project.title].map((src, i) => {
+            const isVideo = src.toLowerCase().endsWith('.mp4');
+            return (
+              <div
+                className="project-image-container"
+                key={i}
+                style={{ ...styles.imageContainer, width: '70%' }}
+              >
+                {isVideo ? (
+                  <video
+                    src={src}
+                    controls
+                    loop
+                    muted
+                    autoPlay
+                    style={{ ...styles.projectImage, borderRadius: '10px' }}
+                  />
+                ) : (
+                  <img
+                    src={src}
+                    alt={project.title}
+                    className="project-image"
+                    style={styles.projectImage}
+                  />
+                )}
+              </div>
+            );
+          })
         }
+
       </div>
 
         <div className='project-content-container' style={styles.contentContainer}>
@@ -189,16 +208,19 @@ This project gave me hands-on experience with:
                 <span>View Code</span>
               </a>
             }
-            <a 
-              href={project.liveUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className='link-button-primary'
-              style={styles.linkButtonPrimary}
-            >
-              <ExternalLink size={20} />
-              <span>Live Demo</span>
-            </a>
+            {
+              project.liveUrl &&
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className='link-button-primary'
+                style={styles.linkButtonPrimary}
+              >
+                <ExternalLink size={20} />
+                <span>Live Demo</span>
+              </a>
+            }
           </div>
         </div>
       </div>
@@ -232,7 +254,7 @@ This project gave me hands-on experience with:
           Check out my GitHub profile for additional projects and contributions.
         </p>
         <a 
-          href="https://github.com/yourusername" 
+          href="https://github.com/PloKoon68" 
           target="_blank" 
           rel="noopener noreferrer"
           className='cta-button'
