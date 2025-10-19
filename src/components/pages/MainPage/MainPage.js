@@ -60,9 +60,9 @@ const Skills = () => {
   Database: ['PostgreSQL', 'MongoDB', 'MySQL'],
   MachineLearning: ['TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy'],
   DevOps: ['Docker', 'CI/CD', 'Kubernetes', 'AWS'],
-  Web: ['React', 'Bootstrap', 'Tailwind', 'Node.js', 'Express.js', 'Flask', 'FastAPI', 'Go'],
+  Web: ['React', 'Next.js', 'Bootstrap', 'Tailwind', 'Node.js', 'Express.js', 'Flask', 'FastAPI', 'Go'],
   Languages: ['English (B2+)', 'Turkish (Native)'],
-  Other: ['Git', 'REST APIs', 'Agile/Scrum', 'OOP']
+  Other: ['Git', 'REST APIs', 'Websockets', 'UDP', 'Multi Threads', 'Agile/Scrum', 'OOP']
 };
 
   return (
@@ -151,12 +151,12 @@ const Cards = () => {
       path: "/experiences"
     },
     {
-      title: 'Competitions',
+      title: 'Contests',
       description: 'Hackathons, contests, and achievements',
       icon: Trophy,
       gradient: 'linear-gradient(135deg, #f59e0b, #f97316)',
       image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80',
-      path: "/competitions"
+      path: "/contests"
     },
     {
       title: 'Hobbies',
