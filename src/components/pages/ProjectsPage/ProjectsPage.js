@@ -72,8 +72,8 @@ The demo is available for testing and feedback, but the source code is currently
 - PostgreSQL, hosted on Render, stores persistent data across four core tables: users, cases, criterias, and decisionmatrix, with relationships and constraints ensuring integrity. 
 The backend is deployed on Render alongside the managed PostgreSQL database, while the React frontend is deployed as a static site via GitHub Pages. Together, these technologies form a scalable and maintainable architecture that can be extended with new modules, such as additional algorithms, demo functionality, or user settings.`,
       technologies: ['React', 'Express.js', 'PostgreSQL', 'Docker', 'Render', 'Bootstrap', 'PrimeReact'],
-      githubUrl: 'https://github.com/yourusername/weather-dashboard',
-      liveUrl: 'https://weather-dashboard-demo.vercel.app',
+      githubUrl: 'https://github.com/PloKoon68/neural-builder',
+      liveUrl: 'https://nn-builder.vercel.app',
     },
 
     {
