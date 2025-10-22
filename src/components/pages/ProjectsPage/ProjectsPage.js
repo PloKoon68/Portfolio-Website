@@ -20,7 +20,7 @@ The demo is available for testing and feedback, but the source code is currently
       image: "as",
       technologies: ['C++', 'Crow', 'React.js', 'Express.js', 'REST Api', 'WebSockets', 'MongoDB', 'Mongoose', 'Docker'],
       githubUrl: 'https://github.com/PloKoon68/neural-builder',
-      liveUrl: 'https://nn-builder.vercel.app',
+      liveUrl: 'https://neural-builder.vercel.app/my-models',
     },
     
     {
