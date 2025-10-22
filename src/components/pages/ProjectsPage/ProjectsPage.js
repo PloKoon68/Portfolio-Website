@@ -14,8 +14,14 @@ export default function ProjectsPage() {
 - C++ Module (Deep Learning Logic): This core module implements deep learning functionality such as layer types, activation functions, loss functions, and more, following object-oriented principles and design patterns. The Crow framework is used for API handling, managing HTML requests, and establishing WebSocket connections with the frontend to transmit epoch results during training. Eigen library is leveraged for efficient vectorization, significantly enhancing performance.
 - Express.js Module (Authentication & Data Management): The backend is responsible for user authentication and data storage. It follows the MVC pattern, handling requests from the frontend, managing user sessions, and saving user data in a MongoDB database using the Mongoose library.
 - React.js Module (Frontend/UI): The frontend provides an intuitive, user-friendly interface for interacting with the system. Users can design, train, and test deep learning models seamlessly through the visual interface.
+- CI/CD Pipeline (Automation & Deployment): Implemented a fully automated CI/CD workflow using GitHub Actions and Docker, ensuring reliable testing and seamless deployment. Automatic build and test triggered on every push to the main branch.Backend (Express.js) and C++ framework are containerized with Docker and pushed to Docker Hub. Deployments are automatically triggered on Render for backend services and Vercel for the React frontend. Each commit is verified through linting, syntax checks, and test execution before deployment, ensuring production stability and minimal downtime.
 
-The demo is available for testing and feedback, but the source code is currently closed as I'm evaluating potential commercial or proprietary use cases.
+Deployment:
+- Frontend: Hosted on Vercel
+- Backend (Express.js and c++ module): Deployed via Render (Docker-based service), working on shifting to AWS.
+Container Registry: Docker Hub
+
+Note: The demo is available for testing and feedback, but the source code is currently closed while evaluating potential commercial use cases.
 `,
       image: "as",
       technologies: ['C++', 'Crow', 'React.js', 'Express.js', 'REST Api', 'WebSockets', 'MongoDB', 'Mongoose', 'Docker'],
