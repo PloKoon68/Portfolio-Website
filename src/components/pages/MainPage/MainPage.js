@@ -37,7 +37,7 @@ const Hero = () => {
           </p>
 
           <div style={styles.socialLinks}>
-            <a href="https://github.com/PloKoon68" target="_blank" rel="noopener noreferrer" style={styles.socialLink}>
+            <a href="https://github.com/mehmet-ors68" target="_blank" rel="noopener noreferrer" style={styles.socialLink}>
               <Github size={24} />
             </a>
             <a href="https://linkedin.com/in/mehmetors" target="_blank" rel="noopener noreferrer" style={styles.socialLink}>
@@ -219,7 +219,7 @@ const Contact = () => {
 const Footer = () => {
   return (
     <footer style={styles.footer}>
-      <p>© 2025 Your Name. Built with React.</p>
+      <p>© 2026 Mehmet Örs. Built with React.</p>
     </footer>
   );
 };

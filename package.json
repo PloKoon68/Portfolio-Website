@@ -1,8 +1,6 @@
 {
-  "homepage": "https://PloKoon68.github.io/Portfolio-Website",
-
-
-  "name": "son",
+  "homepage": "https://mehmet-ors68.github.io/Portfolio-Website",
+  "name": "portfolio-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

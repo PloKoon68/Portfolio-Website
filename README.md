@@ -1,71 +1,66 @@
-# Getting Started with Create React App
+# Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio site for **Mehmet Örs** — Software Engineer, Istanbul.
 
-## Available Scripts
+**Live:** https://mehmet-ors68.github.io/Portfolio-Website/
 
-In the project directory, you can run:
+A single-page React application presenting my background, engineering projects, work
+experience and competition results.
 
-### `npm start`
+## Sections
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Route | Contents |
+|---|---|
+| `/` | Intro, education, tech stack, contact |
+| `/projects` | Engineering projects with screenshots and demo videos |
+| `/experiences` | Work history — Havelsan, Turkish Aerospace, TeknoSürüm, Caretta |
+| `/contests` | Hackathons and competitions — TÜBİTAK, Teknofest, Hepsiburada |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **React 19** with **React Router 7** for client-side routing
+- **lucide-react** for icons
+- Inline style objects and plain CSS — no UI framework
+- Media assets bundled at build time via Webpack's `require.context`
+- Deployed to **GitHub Pages** with the `gh-pages` package
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running Locally
 
-### `npm run build`
+```bash
+npm install
+npm start          # http://localhost:3000
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploying
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run deploy     # builds, then publishes ./build to the gh-pages branch
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The `homepage` field in `package.json` sets the base path for built assets. It must
+match the deployed URL path (`/Portfolio-Website`) or the site will load a blank page.
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+src/
+├── App.js                       Router and navigation bar
+└── components/
+    ├── NavBar.js
+    └── pages/
+        ├── MainPage/            Hero, education, section cards, skills, contact
+        ├── ProjectsPage/        Project cards + assets/
+        ├── ExperiencesPage/     Experience timeline + assets/
+        ├── ContestsPage/        Competition cards + assets/
+        └── HobbiesPage/         Not yet wired into the router
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Each page folder keeps its images and videos in a local `assets/` directory, grouped
+into one subfolder per project or company. `require.context` reads those folders at
+build time and matches them to entries by name, so adding a new item means dropping
+an asset folder in and adding an object to the page's array — no import statements
+to update.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contact
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# Portfolio-Website" 
+**Mehmet Örs** — [GitHub](https://github.com/mehmet-ors68) · [LinkedIn](https://linkedin.com/in/mehmetors)
