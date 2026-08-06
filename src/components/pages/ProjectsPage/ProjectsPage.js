@@ -25,10 +25,10 @@ Note: The demo is available for testing and feedback, but the source code is cur
 `,
       image: "as",
       technologies: ['C++', 'Crow', 'React.js', 'Express.js', 'REST Api', 'WebSockets', 'MongoDB', 'Mongoose', 'Docker'],
-      githubUrl: 'https://github.com/PloKoon68/neural-builder',
+      githubUrl: 'https://github.com/mehmet-ors68/deepl-learning-library-app',
       liveUrl: 'https://neural-builder.vercel.app/',
     },
-    
+
     {
       id: 2,
       title: 'Aegis Tracking',
@@ -64,7 +64,7 @@ Note: The demo is available for testing and feedback, but the source code is cur
  * The entire stack can be started automatically using docker-compose.yml, ensuring a seamless development and testing environment.
 `,
       technologies: ['React', 'Flask', 'Docker', 'Docker Compose', 'MongoDB', 'PostgreSQL', 'PostGIS', 'YOLO', 'Transformer Models', 'OpenCV', 'WebSockets', 'UDP Streaming', 'H.264'], 
-      githubUrl: 'https://github.com/PloKoon68/aegis-tracking',
+      githubUrl: 'https://github.com/mehmet-ors68/aegis-tracking',
       liveUrl: false,
     },
     {
@@ -105,7 +105,7 @@ This project gave me hands-on experience with:
 - Team collaboration in a competitive robotics environment
 `,
   technologies: ['MAVSDK', 'OpenCV', 'Python', 'Gazebo', 'Raspberry Pi', 'Ubuntu/Linux', 'PX4 Autopilot'],
-      githubUrl: 'https://github.com/PloKoon68/Quadcopter-UAV',
+      githubUrl: 'https://github.com/mehmet-ors68/Quadcopter-UAV',
       liveUrl: false,
     }
   ];
@@ -260,7 +260,7 @@ This project gave me hands-on experience with:
           Check out my GitHub profile for additional projects and contributions.
         </p>
         <a 
-          href="https://github.com/PloKoon68" 
+          href="https://github.com/mehmet-ors68" 
           target="_blank" 
           rel="noopener noreferrer"
           className='cta-button'
