@@ -4,14 +4,24 @@ export default function ExperiencesPage() {
   
   const experiences = [
     {
+      id: 6,
+      company: 'Insider One',
+      position: 'Software Developer',
+      location: 'Istanbul, Turkey (Remote)',
+      startDate: 'Jan 2026',
+      endDate: 'Jun 2026',
+      description: 'My first full-time engineering role, working remotely. I integrated Insider One\'s products — Smart Recommenders, Eureka Search Engine and Lead Collection campaigns — into the live websites of global partner brands, writing each integration in JavaScript, HTML and CSS against the partner\'s own front-end code. Every integration shipped inside an A/B testing setup, so its effect was measured on real production traffic rather than assumed. I worked in an Agile team and tracked delivery through Jira. Alongside the client work I moved onto the company\'s backend engineering path, completing the Docker containerization training and starting Go service development ahead of a planned transition to backend.',
+      technologies: ['JavaScript', 'HTML', 'CSS', 'A/B Testing', 'Docker', 'Go', 'Agile (Jira)'],
+      companyUrl: 'https://insiderone.com/'
+    },
+    {
       id: 1,
       company: 'Havelsan',
       position: 'Software Engineering Intern',
-      location: 'Ankara, Turkey',
+      location: 'Istanbul, Turkey',
       startDate: 'Jul 2025',
       endDate: 'Aug 2025',
       description: 'As part of a team, I developed a microservices-based product using Flask, Spring Boot, React, PostgreSQL, and MongoDB. We implemented real-time communication between modules using WebSockets and UDP, leveraging a multi-threaded architecture. I integrated YOLO and Transformer-based AI models to calculate object risk scores, which were tracked live on a map and video interface. The entire system was containerized using Docker for seamless deployment.',
-      image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80',
       technologies: ['Flask', 'Spring Boot', 'React', 'PostgreSQL', 'PostGIS', 'MongoDB', 'Docker', 'YOLO'],
       companyUrl: 'https://www.havelsan.com.tr/',
       certificateUrl: 'https://drive.google.com/file/d/1XDg0wqmHG0gY6XFakYmyNv9Cpaf3GX0K/view?usp=sharing' 
@@ -20,11 +30,10 @@ export default function ExperiencesPage() {
       id: 3,
       company: 'TAI (Turkish Aerospace Industries)',
       position: 'Candidate Engineer',
-      location: 'Ankara, Turkey',
+      location: 'Istanbul, Turkey',
       startDate: 'Dec 2023',
       endDate: 'May 2024',
       description: 'During a 6-month program in my junior year, I worked at TAI two days a week. My primary responsibility was to develop a full-stack aircraft and flight record tracking system. This project was built using React for the frontend, Express.js for the backend, and MySQL for the database. I received positive feedback to continue but was unable to, due to my upcoming ERASMUS program.',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
       technologies: ['React', 'Express.js', 'MySQL', 'Full-Stack Development'],
       companyUrl: 'https://www.tusas.com/',
       certificateUrl: 'https://drive.google.com/file/d/1-_ly8ReiUIllpmUaHV9PE4GLGo-08F00/view?usp=sharing' 
@@ -37,19 +46,17 @@ export default function ExperiencesPage() {
       startDate: 'Aug 2024',
       endDate: 'Sep 2024',
       description: 'At this AI startup in ITU Technopark, I focused on computer vision for the dairy farming industry. I annotated a large dataset of cow images using polygon labeling in CVAT. Afterward, I trained a YOLO object detection model on this custom dataset. The final model was used to build algorithms for tracking and monitoring the health and safety of livestock.',
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80',
       technologies: ['Python', 'Computer Vision', 'YOLO', 'CVAT', 'Data Annotation', 'Pytorch'],
       companyUrl: 'https://www.teknosurum.com/'
     },
     {
       id: 4,
       company: 'Caretta',
-      position: 'Machine Learning Intern',
+      position: 'AI - Full Stack Developer Intern',
       location: 'Istanbul, Turkey',
       startDate: 'Oct 2023',
       endDate: 'Nov 2023',
       description: 'In this project, I applied transfer learning by importing a VGG-16 model from TensorFlow. I froze the convolutional layers and trained the final dense layers on the Oxford 102 flower dataset. To deploy the model, our team built a full-stack application with a React frontend and a FastAPI backend that hosted and served the trained model via an API.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
       technologies: ['Python', 'TensorFlow', 'VGG-16', 'Transfer Learning', 'React', 'FastAPI'],
       companyUrl: 'https://www.caretta.net/en'
     },
@@ -58,10 +65,9 @@ export default function ExperiencesPage() {
       company: 'Caretta',
       position: 'Machine Learning Intern',
       location: 'Istanbul, Turkey',
-      startDate: 'Sep 2022',
+      startDate: 'Aug 2022',
       endDate: 'Oct 2022',
       description: 'After placing in a coding competition, I earned a voluntary internship where I focused on recommendation systems. Using an e-commerce dataset, I implemented the SVD++ algorithm from scratch with Python, Pandas, and NumPy to build a collaborative filtering model. To showcase the results, I created a simple, interactive web interface using Streamlit.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
       technologies: ['Python', 'Pandas', 'NumPy', 'SVD++', 'Recommendation Systems', 'Streamlit'],
       companyUrl: 'https://www.caretta.net/en'
     }

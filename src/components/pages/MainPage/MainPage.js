@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Code, Briefcase, Trophy, Heart, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, Briefcase, Trophy, Heart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 import img from './assets/vesikalık.jpeg';
@@ -61,7 +61,7 @@ const Skills = () => {
   MachineLearning: ['TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy'],
   DevOps: ['Docker', 'CI/CD', 'Kubernetes', 'AWS'],
   Web: ['React', 'Next.js', 'Bootstrap', 'Tailwind', 'Node.js', 'Express.js', 'Flask', 'FastAPI', 'Go'],
-  Languages: ['English (B2+)', 'Turkish (Native)'],
+  Languages: ['English (C1)', 'Turkish (Native)'],
   Other: ['Git', 'REST APIs', 'Websockets', 'UDP', 'Multi Threads', 'Agile/Scrum', 'OOP']
 };
 
@@ -94,8 +94,8 @@ const Education = () => {
     {
       name: 'İstanbul Aydın University',
       degree: 'Bachelor of Software Engineering ',
-      gpa: 'GPA: 3.62/4.00 - 2nd in department - High Honor',
-      period: '2020 - 2025',
+      gpa: 'GPA: 3.62/4.00 - 4th in department - High Honor',
+      period: '2021 - 2025',
       description: 'Sofware Development, Project Mangement, AI'
     },
     {
