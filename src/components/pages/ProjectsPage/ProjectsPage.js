@@ -27,6 +27,7 @@ Note: The demo is available for testing and feedback, but the source code is cur
       technologies: ['C++', 'Crow', 'React.js', 'Express.js', 'REST Api', 'WebSockets', 'MongoDB', 'Mongoose', 'Docker'],
       githubUrl: 'https://github.com/mehmet-ors68/deepl-learning-library-app',
       liveUrl: 'https://neural-builder.vercel.app/',
+      videoId: 'nXWutFvMBQQ',
     },
 
     {
@@ -78,8 +79,8 @@ Note: The demo is available for testing and feedback, but the source code is cur
 - PostgreSQL, hosted on Render, stores persistent data across four core tables: users, cases, criterias, and decisionmatrix, with relationships and constraints ensuring integrity. 
 The backend is deployed on Render alongside the managed PostgreSQL database, while the React frontend is deployed as a static site via GitHub Pages. Together, these technologies form a scalable and maintainable architecture that can be extended with new modules, such as additional algorithms, demo functionality, or user settings.`,
       technologies: ['React', 'Express.js', 'PostgreSQL', 'Docker', 'Render', 'Bootstrap', 'PrimeReact'],
-      githubUrl: 'https://github.com/yourusername/weather-dashboard',
-      liveUrl: 'https://weather-dashboard-demo.vercel.app',
+      githubUrl: 'https://github.com/mehmet-ors68/Optimal-Desicion-Maker-App',
+      liveUrl: false,
     },
 
     {
@@ -107,10 +108,13 @@ This project gave me hands-on experience with:
   technologies: ['MAVSDK', 'OpenCV', 'Python', 'Gazebo', 'Raspberry Pi', 'Ubuntu/Linux', 'PX4 Autopilot'],
       githubUrl: 'https://github.com/mehmet-ors68/Quadcopter-UAV',
       liveUrl: false,
+      videoId: '4dzoeZsL974',
     }
   ];
 
-  const context = require.context('./assets', true, /\.(png|jpe?g|svg|mp4)$/);
+  // Videos are hosted externally, not bundled — a 70 MB mp4 in the build blocks
+  // deployment (Cloudflare caps files at 25 MB) and makes the page unusable on mobile.
+  const context = require.context('./assets', true, /\.(png|jpe?g|svg)$/);
   const groupedImages = {};
 
   context.keys().forEach((key) => {
@@ -135,33 +139,36 @@ This project gave me hands-on experience with:
       }}>
 
       <div className='all-images-container' style={{...styles.allImagesContainer, gap: '100px',  overflow: 'auto'}}>
+        {project.videoId && (
+          <div
+            className="project-image-container"
+            style={{ ...styles.imageContainer, width: '70%' }}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${project.videoId}`}
+              title={`${project.title} — demo video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{ width: '100%', aspectRatio: '16 / 9', border: 0, borderRadius: '10px' }}
+            />
+          </div>
+        )}
+
         {
           groupedImages[project.title] &&
           groupedImages[project.title].map((src, i) => {
-            const isVideo = src.toLowerCase().endsWith('.mp4');
             return (
               <div
                 className="project-image-container"
                 key={i}
                 style={{ ...styles.imageContainer, width: '70%' }}
               >
-                {isVideo ? (
-                  <video
-                    src={src}
-                    controls
-                    loop
-                    muted
-                    autoPlay
-                    style={{ ...styles.projectImage, borderRadius: '10px' }}
-                  />
-                ) : (
-                  <img
-                    src={src}
-                    alt={project.title}
-                    className="project-image"
-                    style={styles.projectImage}
-                  />
-                )}
+                <img
+                  src={src}
+                  alt={project.title}
+                  className="project-image"
+                  style={styles.projectImage}
+                />
               </div>
             );
           })
