@@ -29,11 +29,9 @@ jobs:
 
       - run: npm ci
 
+      # CI=true is set by Actions, which makes Create React App treat lint
+      # warnings as build errors. That is intentional here — keep the build clean.
       - run: npm run build
-        env:
-          # Create React App turns warnings into errors when CI=true.
-          # Unused imports currently exist, so leave this false until they are cleaned up.
-          CI: false
 
       - uses: actions/configure-pages@v5
 
