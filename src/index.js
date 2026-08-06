@@ -7,7 +7,9 @@ import { BrowserRouter } from 'react-router-dom';  // Import BrowserRouter
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <BrowserRouter basename='/Portfolio-Website'>
+      {/* Derived from the homepage field in package.json, so the router follows
+          wherever the app is hosted instead of being pinned to one path. */}
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <App />
     </BrowserRouter>
   </React.StrictMode>
